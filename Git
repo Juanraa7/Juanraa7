@@ -1,0 +1,74 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+masterbio@pc3-16:~$ cd
+masterbio@pc3-16:~$ mkdir project_1
+masterbio@pc3-16:~$ cd project_1
+masterbio@pc3-16:~/project_1$ git init
+consell: S'està utilitzant «master» com a nom de la branca inicial. Aquest nom de branca
+consell: per defecte es pot canviar. Per a configurar el nom inicial de la branca que
+consell: s'utilitzarà en tots els repositoris nous, i que suprimirà aquest avís, useu:
+consell: 
+consell:        git config --global init.defaultBranch <nom>
+consell: 
+consell: Els noms més usats habitualment en lloc de «master» són «main», «trunk» i
+consell: «development». La branca acabada de crear es pot canviar de nom amb l'ordre:
+consell: 
+consell:        git branch -m <nom>
+S'ha inicialitzat un repositori buit del Git en /home/masterbio/project_1/.git/
+masterbio@pc3-16:~/project_1$ ls
+masterbio@pc3-16:~/project_1$ ls -a
+.  ..  .git
+masterbio@pc3-16:~/project_1$ echo "Project created by Joan" >README
+masterbio@pc3-16:~/project_1$ cat README
+Project created by Joan
+masterbio@pc3-16:~/project_1$ mkdir data
+masterbio@pc3-16:~/project_1$ cd data
+masterbio@pc3-16:~/project_1/data$ echo "Sample 1: 1,2,3,4,5,6,7,8,9" > data_1.dat
+masterbio@pc3-16:~/project_1/data$ cat data_1.dat
+Sample 1: 1,2,3,4,5,6,7,8,9
+masterbio@pc3-16:~/project_1/data$ 7
+7: no s'ha trobat l'ordre
+masterbio@pc3-16:~/project_1/data$ git add README
+fatal: l'especificació de camí «README» no ha coincidit amb cap fitxer
+masterbio@pc3-16:~/project_1/data$ git add data/data_1.dat
+warning: no s'ha pogut obrir el directori «data/data/»: El fitxer o directori no existeix
+fatal: l'especificació de camí «data/data_1.dat» no ha coincidit amb cap fitxer
+masterbio@pc3-16:~/project_1/data$ cat data_1.dat
+Sample 1: 1,2,3,4,5,6,7,8,9
+masterbio@pc3-16:~/project_1/data$ git add READMe
+fatal: l'especificació de camí «READMe» no ha coincidit amb cap fitxer
+masterbio@pc3-16:~/project_1/data$ git add project_1
+fatal: l'especificació de camí «project_1» no ha coincidit amb cap fitxer
+masterbio@pc3-16:~/project_1/data$ git log
+fatal: la branca actual «master» encara no té cap comissió
+masterbio@pc3-16:~/project_1/data$ git add . 
+masterbio@pc3-16:~/project_1/data$ git status
+En la branca master
+
+No s'ha fet cap comissió encara
+
+Canvis a cometre:
+  (useu «git rm --cached <fitxer>...» per a fer «unstage»)
+        fitxer nou:       data_1.dat
+
+Fitxers no seguits:
+  (useu «git add <fitxer>...» per a incloure'ls en la comissió)
+        ../README
+
+masterbio@pc3-16:~/project_1/data$ git commit -m "README modified and Manual.txt created"
+[master (comissió arrel) fb24dfa] README modified and Manual.txt created
+ 1 file changed, 1 insertion(+)
+ create mode 100644 data/data_1.dat
+masterbio@pc3-16:~/project_1/data$ git log
+commit fb24dfad354d9d9f3e72ddd4f24fc3650c2bfaa9 (HEAD -> master)
+Author: myname <“my_email_name@uab.es”>
+Date:   Thu Sep 26 13:21:32 2024 +0200
+
+    README modified and Manual.txt created
+masterbio@pc3-16:~/project_1/data$ git log --graph --pretty=short
+* commit fb24dfad354d9d9f3e72ddd4f24fc3650c2bfaa9 (HEAD -> master)
+  Author: myname <“my_email_name@uab.es”>
+  
+      README modified and Manual.txt created
+masterbio@pc3-16:~/project_1/data$ 
